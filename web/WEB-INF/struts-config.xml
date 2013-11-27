@@ -20,6 +20,43 @@
 
     <action-mappings>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
+
+                
+        <action path="/back" type="Actions.backHome" validate="false">
+            <forward name="success" path="/indice.jsp"/>
+        </action>
+        
+        <action path="/agregarL"  type="Actions.agregarL" validate="false">
+            <forward name="success" path="/agregar.jsp"/>
+        </action>
+        
+        <action path="/eliminarL"  type="Actions.eliminarL" validate="false">
+            <forward name="success" path="/eliminar.jsp"/>
+        </action>
+        
+        <action path="/consultarL"  type="Actions.consultarL" validate="false">
+            <forward name="success" path="/consultar.jsp"/>
+        </action>
+        
+        <action path="/modificarL"  type="Actions.modificarL" validate="false">
+            <forward name="success" path="/modificar.jsp"/>
+        </action>
+        
+<!--        <action path="/agregar" name="persona" type="Actions.agregar" validate="false">
+            <forward name="success" path="/lologre.jsp"/>
+            <forward name="failure" path="/fail.jsp"/>
+        </action>
+        <action path="/eliminar" name="persona" type="Actions.eliminar" validate="false">
+            <forward name="success" path="/lologre.jsp"/>
+            <forward name="failure" path="/fail.jsp"/>
+        </action>
+        <action path="/modificar" name="persona" type="Actions.modificar" validate="false">
+            <forward name="success" path="/lologre.jsp"/>
+            <forward name="failure" path="/fail.jsp"/>
+        </action>-->
+                     
+        
+        
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
