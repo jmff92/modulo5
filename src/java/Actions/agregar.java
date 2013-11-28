@@ -6,6 +6,7 @@
 
 package Actions;
 
+import Clases.Usuario;
 import DBMS.DBMS;
 
 import javax.servlet.http.HttpServletRequest;
@@ -40,33 +41,35 @@ public class agregar extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-//        
-//        persona u = (persona) form;
-//        HttpSession session = request.getSession(true);
-//        
-//        
-//        
-//        error = u.validate(mapping, request);
-//        boolean huboError = false;
-//        
-//        if (error.size() != 0) {
-//            huboError = true;
-//        }
-//        
-//        if (huboError) {
-//            saveErrors(request, error);
-//            return mapping.findForward(FAILURE);
-//            
-//        } else {
-//            
-//            boolean agrego = DBMS.getInstance().agregarDatos(u);
-//            
-//            if (agrego) {
+        
+        Usuario u = (Usuario) form;
+        HttpSession session = request.getSession(true);
+        
+        ActionErrors error=null;
+        
+        error = u.validate(mapping, request);
+        boolean huboError = false;
+        
+        if (error.size() != 0) {
+            huboError = true;
+        }
+        
+        if (huboError) {
+            saveErrors(request, error);
+            return mapping.findForward(FAILURE);
+            
+        } else {
+            
+            boolean agrego = DBMS.getInstance().agregarUsuario(u);
+            
+            u.limpiar();
+            
+            if (agrego) {
                 return mapping.findForward(SUCCESS);
-//            } else {
-//                return mapping.findForward(FAILURE);
-//            }
-//        }
+            } else {
+                return mapping.findForward(FAILURE);
+            }
+        }
         
 //        Recuerden que esto es una plantilla trabajada con condicionales
 //        dentro de su sistema ustedes deben modelar tal cual si fuera un programa

@@ -17,23 +17,22 @@
     </head>
     <body>
         <h1>Eliminar</h1>
-        <%--
         <html:form action="eliminar">
             <table border="0">
                 <tbody>
                     <tr>
-                        <td>Codigo</td>
+                        <td>UsbId</td>
                         <td>
-                            <html:text name="persona" property="codigo"/>
+                            <html:text name="Usuario" property="usbid"/>
                         </td>
                     </tr>
                 </tbody>
             </table>
                         <p>
-                            <html:submit value="agregar"/>
+                            <html:submit value="eliminar"/>
                         </p>            
         </html:form>
-        --%>
+        
         <html:link action="back">
             <h2>
                 Volver

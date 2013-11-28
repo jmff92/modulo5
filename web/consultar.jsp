@@ -18,31 +18,73 @@
     </head>
     <body>
         <h1>Consultar</h1>
-        <%--
+        
         <table border="0" class="altrowstable" id="alternatecolor">
                 <thead>
                     <tr>
                         <th width="155px" align="center">
-                            ci
+                            UsbId
                         </th>
                         <th width="155px" align="center">
-                            nombre
+                            Nombres
+                        </th>
+                        <th width="155px" align="center">
+                            Apellidos
+                        </th>
+                        <th width="155px" align="center">
+                            Cedula
+                        </th>
+                        <th width="155px" align="center">
+                            Correo
+                        </th>
+                        <th width="155px" align="center">
+                            Direccion
+                        </th>
+                        <th width="155px" align="center">
+                            Telefono Casa
+                        </th>
+                        <th width="155px" align="center">
+                            Telefono Celular
+                        </th>
+                        <th width="155px" align="center">
+                            Tipo
                         </th>
                     </tr>
                 </thead>
 
-                <logic:iterate name="gente" id="persona">
+                <logic:iterate name="user" id="Usuario">
                     <tr>
                         <td width="155px" align="center">
-                            <bean:write name="persona" property="codigo"/>
+                            <bean:write name="Usuario" property="usbid"/>
                         </td>
                         <td width="155px" align="center">
-                            <bean:write name="persona" property="nombre"/>
+                            <bean:write name="Usuario" property="nombres"/>
+                        </td>
+                        <td width="155px" align="center">
+                            <bean:write name="Usuario" property="apellidos"/>
+                        </td>
+                        <td width="155px" align="center">
+                            <bean:write name="Usuario" property="cedula"/>
+                        </td>
+                        <td width="155px" align="center">
+                            <bean:write name="Usuario" property="correo"/>
+                        </td>
+                        <td width="155px" align="center">
+                            <bean:write name="Usuario" property="direccion"/>
+                        </td>
+                        <td width="155px" align="center">
+                            <bean:write name="Usuario" property="telefono_casa"/>
+                        </td>
+                        <td width="155px" align="center">
+                            <bean:write name="Usuario" property="telefono_celular"/>
+                        </td>
+                        <td width="155px" align="center">
+                            <bean:write name="Usuario" property="tipo"/>
                         </td>
                     </tr>
                 </logic:iterate>
             </table>
-        --%>
+        
         <html:link action="back">
             <h2>
                 Volver

@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="Usuario" type="Clases.Usuario"/>
     
     </form-beans>
     
@@ -42,21 +43,19 @@
             <forward name="success" path="/modificar.jsp"/>
         </action>
         
-<!--        <action path="/agregar" name="persona" type="Actions.agregar" validate="false">
+        <action path="/agregar" name="Usuario" type="Actions.agregar" validate="false">
             <forward name="success" path="/lologre.jsp"/>
             <forward name="failure" path="/fail.jsp"/>
         </action>
-        <action path="/eliminar" name="persona" type="Actions.eliminar" validate="false">
+        <action path="/modificar" name="Usuario" type="Actions.modificar" validate="false">
             <forward name="success" path="/lologre.jsp"/>
             <forward name="failure" path="/fail.jsp"/>
         </action>
-        <action path="/modificar" name="persona" type="Actions.modificar" validate="false">
+        <action path="/eliminar" name="Usuario" type="Actions.eliminar" validate="false">
             <forward name="success" path="/lologre.jsp"/>
             <forward name="failure" path="/fail.jsp"/>
-        </action>-->
-                     
-        
-        
+        </action>
+                         
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>

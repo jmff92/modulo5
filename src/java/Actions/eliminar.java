@@ -6,6 +6,7 @@
 
 package Actions;
 
+import Clases.Usuario;
 import DBMS.DBMS;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,33 +32,35 @@ public class eliminar extends org.apache.struts.action.Action{
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         
-//        persona u = (persona) form;
-//        HttpSession session = request.getSession(true);
-//        
-//        ActionErrors error;
-//        
-//        error = u.validate(mapping, request);
-//        boolean huboError = false;
-//        
-//        if (error.size() != 0) {
-//            huboError = true;
-//        }
-//        
-//        if (huboError) {
-//            saveErrors(request, error);
-//            return mapping.findForward(FAILURE);
-//            
-//        } else {
-//            
-//            boolean eliminar = DBMS.getInstance().eliminarDatos(u);
-//            
-//            if (eliminar) {
+        Usuario u = (Usuario) form;
+        HttpSession session = request.getSession(true);
+        
+        ActionErrors error;
+        
+        error = u.validate(mapping, request);
+        boolean huboError = false;
+        
+        if (error.size() != 0) {
+            huboError = true;
+        }
+        
+        if (huboError) {
+            saveErrors(request, error);
+            return mapping.findForward(FAILURE);
+            
+        } else {
+            
+            boolean eliminar = DBMS.getInstance().eliminarUsuario(u);
+            
+            u.limpiar();
+            
+            if (eliminar) {
                 return mapping.findForward(SUCCESS);
-//            } else {
-//                return mapping.findForward(FAILURE);
-//            }
-//        }
-//    
+            } else {
+                return mapping.findForward(FAILURE);
+            }
+        }
+    
     }
 
 }
