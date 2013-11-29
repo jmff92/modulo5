@@ -63,7 +63,7 @@ public class DBMS {
             psAgregar.setString(7, u.getTelefono_casa());
             psAgregar.setString(8, u.getTelefono_celular());
             psAgregar.setString(9, u.getTipo());
-            
+                    
             Integer i = psAgregar.executeUpdate();
             
             return i>0;
