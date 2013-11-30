@@ -23,7 +23,7 @@
                     <tr>
                         <td> UsbId </td>
                         <td>
-                            <html:text name="Usuario" property="usbid"/>
+                            <bean:write name="Usuario" property="usbid"/>
                         </td>
                     </tr>
                     <tr>

@@ -151,4 +151,32 @@ public class DBMS {
         
         return Usuarios;
     }
+    
+    public Usuario obtenerUsuario(Usuario u){
+        
+        PreparedStatement ps = null;
+        try{
+            ps = conexion.prepareStatement("SELECT * FROM USUARIO WHERE usbid=?;");
+            ps.setString(1, u.getUsbid());
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()){
+               
+                u.setUsbid(rs.getString("usbid"));
+                u.setNombres(rs.getString("nombres"));
+                u.setApellidos(rs.getString("apellidos"));
+                u.setCedula(rs.getInt("cedula"));
+                u.setCorreo(rs.getString("correo"));
+                u.setDireccion(rs.getString("direccion"));
+                u.setTelefono_casa(rs.getString("telefono_casa"));
+                u.setTelefono_celular(rs.getString("telefono_celular"));
+                u.setTipo(rs.getString("tipo"));
+                
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        
+        return u;
+    }
 }

@@ -40,7 +40,12 @@
         </action>
         
         <action path="/modificarL"  type="Actions.modificarL" validate="false">
+            <forward name="success" path="/premodificar.jsp"/>
+        </action>
+        
+        <action path="/premodificar" name="Usuario"  type="Actions.premodificar" validate="false">
             <forward name="success" path="/modificar.jsp"/>
+            <forward name="failure" path="/fail.jsp"/>
         </action>
         
         <action path="/agregar" name="Usuario" type="Actions.agregar" validate="false">
