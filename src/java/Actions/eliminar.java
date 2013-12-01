@@ -37,7 +37,16 @@ public class eliminar extends org.apache.struts.action.Action{
         
         ActionErrors error;
         
+        if(u.getUsbid()==null){
+            return mapping.findForward(FAILURE);
+        }
+        
+        u.setCorreo("l@l");
+        u.setTelefono_casa("00000000000");
+        u.setTelefono_celular("00000000000");
+        
         error = u.validate(mapping, request);
+        
         boolean huboError = false;
         
         if (error.size() != 0) {

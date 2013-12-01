@@ -46,6 +46,19 @@ public class agregar extends org.apache.struts.action.Action {
                 
         ActionErrors error=null;
         
+        if(u.getApellidos()==null||u.getCorreo()==null||u.getDireccion()==null
+                ||u.getNombres()==null||u.getTelefono_casa()==null
+                ||u.getTelefono_celular()==null||u.getTipo().contentEquals("")
+                ||u.getUsbid()==null
+                ||u.getApellidos().contentEquals("")
+                ||u.getCorreo().contentEquals("")
+                ||u.getDireccion().contentEquals("")
+                ||u.getNombres().contentEquals("")
+                ||u.getTelefono_celular().contentEquals("")
+                ||u.getUsbid().contentEquals("")){
+            return mapping.findForward(FAILURE);
+        }
+        
         error = u.validate(mapping, request);
         boolean huboError = false;
         
