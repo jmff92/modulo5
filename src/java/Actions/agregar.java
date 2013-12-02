@@ -59,7 +59,7 @@ public class agregar extends org.apache.struts.action.Action {
             return mapping.findForward(FAILURE);
         }
         
-        error = u.validate(mapping, request);
+        error = u.validateTodo(mapping, request);
         boolean huboError = false;
         
         if (error.size() != 0) {

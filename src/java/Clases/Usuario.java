@@ -60,7 +60,13 @@ public class Usuario extends org.apache.struts.action.ActionForm {
      * @param request The HTTP Request we are processing.
      * @return
      */
-    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
+    @Override
+    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request){
+        ActionErrors errors = new ActionErrors();
+        return errors;
+    }
+    
+    public ActionErrors validateTodo(ActionMapping mapping, HttpServletRequest request) {
         ActionErrors errors = new ActionErrors();
 
         this.setErrorUsbid("");
@@ -68,11 +74,6 @@ public class Usuario extends org.apache.struts.action.ActionForm {
         this.setErrorTelefono_casa("");
         this.setErrorTelefono_celular("");
         
-        if (!getUsbid().matches("\\d{2}-\\d{5}")){
-            this.setErrorUsbid("error");
-            errors.add("usbid", new ActionMessage("error.codigo.required"));
-        }
-
         if (getCorreo().indexOf("@")==-1){
             this.setErrorCorreo("error");
             errors.add("correo", new ActionMessage("error.codigo.required"));

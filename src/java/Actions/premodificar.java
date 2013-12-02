@@ -45,7 +45,16 @@ public class premodificar extends org.apache.struts.action.Action {
         
         ActionErrors error=null;
         
+        if(u.getUsbid()==""){
+            return mapping.findForward(FAILURE);
+        }
+        
         error = u.validate(mapping, request);
+        
+        if(error == null){
+            return mapping.findForward(FAILURE);
+        }
+        
         boolean huboError = false;
         
         if (error.size() != 0) {

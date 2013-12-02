@@ -47,7 +47,7 @@ public class modificar extends org.apache.struts.action.Action {
         
         ActionErrors error = null;
         
-        error = u.validate(mapping, request);
+        error = u.validateTodo(mapping, request);
         boolean huboError = false;
         
         if (error.size() != 0) {
