@@ -8,6 +8,7 @@
 <struts-config>
     <form-beans>
         <form-bean name="Usuario" type="Clases.Usuario"/>
+        <form-bean name="LoginForm" type="com.myapp.struts.LoginForm"/>        
     
     </form-beans>
     
@@ -22,7 +23,11 @@
     <action-mappings>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
 
-                
+         <action name="LoginForm" path="/login" scope="request" type="com.myapp.struts.LoginAction" validate="false">
+            <forward name="success" path="/Menu.jsp"/>
+            <forward name="failure" path="/inicio.jsp"/>
+        </action>
+                       
         <action path="/back" type="Actions.backHome" validate="false">
             <forward name="success" path="/indice.jsp"/>
         </action>

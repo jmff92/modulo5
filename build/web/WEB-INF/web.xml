@@ -27,6 +27,6 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>Menu.jsp</welcome-file>
+        <welcome-file>inicio.jsp</welcome-file>
     </welcome-file-list>
 </web-app>
