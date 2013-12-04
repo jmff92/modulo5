@@ -129,7 +129,8 @@ public class DBMS {
         ArrayList<Empleado> Empleados = new ArrayList<Empleado>();
         PreparedStatement ps = null;
         try{
-            ps = conexion.prepareStatement("SELECT * FROM USUARIO;");
+            ps = conexion.prepareStatement(
+                    "SELECT * FROM USUARIO AS U,EMPLEADO AS E WHERE E.USBID=U.USBID;");
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
                 Empleado u = new Empleado();

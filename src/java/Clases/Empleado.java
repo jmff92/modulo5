@@ -20,7 +20,7 @@ public class Empleado extends Usuario{
     private String usbid;
     private String cargo;
     private String antiguedad;
-    private String tipo;
+    private String tipoE;
 
     private String errorAntiguedad;
     
@@ -95,15 +95,15 @@ public class Empleado extends Usuario{
     /**
      * @return the tipo
      */
-    public String getTipo() {
-        return tipo;
+    public String getTipoE() {
+        return tipoE;
     }
 
     /**
      * @param tipo the tipo to set
      */
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setTipoE(String tipo) {
+        this.tipoE = tipo;
     }
 
     /**

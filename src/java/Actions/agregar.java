@@ -7,6 +7,7 @@
 package Actions;
 
 import Clases.Usuario;
+import Clases.Empleado;
 import DBMS.DBMS;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,7 +43,7 @@ public class agregar extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         
-        Usuario u = (Usuario) form;
+        Empleado u = (Empleado) form;
                 
         ActionErrors error=null;
         

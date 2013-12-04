@@ -44,55 +44,55 @@
                     <tr>
                         <td> UsbId </td>
                         <td>
-                            <html:text name="Usuario" property="usbid"/>
+                            <html:text name="Empleado" property="usbid"/>
                         </td>
                     </tr>
                     <tr>
                         <td> Nombres </td>
                         <td>
-                            <html:text name="Usuario" property="nombres"/>
+                            <html:text name="Empleado" property="nombres"/>
                         </td>
                     </tr>
                     <tr>
                         <td> Apellidos </td>
                         <td>
-                            <html:text name="Usuario" property="apellidos"/>
+                            <html:text name="Empleado" property="apellidos"/>
                         </td>
                     </tr>
                     <tr>
                         <td> Cedula </td>
                         <td>
-                            <html:text name="Usuario" property="cedula"/>
+                            <html:text name="Empleado" property="cedula"/>
                         </td>
                     </tr>
                     <tr>
                         <td> Correo </td>
                         <td>
-                            <html:text name="Usuario" property="correo"/>
+                            <html:text name="Empleado" property="correo"/>
                         </td>
                     </tr>
                     <tr>
                         <td> Direccion </td>
                         <td>
-                            <html:text name="Usuario" property="direccion"/>
+                            <html:text name="Empleado" property="direccion"/>
                         </td>
                     </tr>
                     <tr>
                         <td> Telefono fijo </td>
                         <td>
-                            <html:text name="Usuario" property="telefono_casa"/>
+                            <html:text name="Empleado" property="telefono_casa"/>
                         </td>
                     </tr>
                     <tr>
                         <td> Telefono celular</td>
                         <td>
-                            <html:text name="Usuario" property="telefono_celular"/>
+                            <html:text name="Empleado" property="telefono_celular"/>
                         </td>
                     </tr>
                     <tr>
                         <td> Tipo </td>
                         <td>
-                            <html:select name="Usuario" property="tipo">
+                            <html:select name="Empleado" property="tipo">
                                 <html:option value=""></html:option>
                                 <html:option value="estudiante">Estudiante</html:option>
                                 <html:option value="profesor">Profesor</html:option>
