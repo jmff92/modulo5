@@ -14,6 +14,15 @@ CREATE TABLE USUARIO (
        tipo      varchar(20) NOT NULL
 );
 
+create table empleado(                                                        
+cargo varchar(30) not null,
+antiguedad varchar(30) not null,
+tipo varchar(15) not null,
+usbid varchar(15) not null, constraint pk_empleado primary key (usbid),
+constraint fk_empleado foreign key (usbid) references usuario(usbid) on delete cascade
+);
+
+
 -- CREATE TABLE ESTUDIANTE (
 --   usbid			varchar(15)           	PRIMARY KEY references USUARIO(usbid),
 --   carnet		varchar(8)				NOT NULL,
@@ -23,11 +32,3 @@ CREATE TABLE USUARIO (
 -- CREATE TABLE PROFESOR (
 --   usbid			varchar(15)           	PRIMARY KEY references USUARIO(usbid),
 -- );
-
--- CREATE TABLE EMPLEADO (
---   usbid			varchar(15)           	PRIMARY KEY references USUARIO(usbid),
---   cargo			varchar(30)				NOT NULL,
---   antiguedad	varchar(30)				NOT NULL,
---   tipo			tipo_empleado       	NOT NULL
--- );
-
