@@ -6,7 +6,7 @@
 
 package Actions;
 
-import Clases.Usuario;
+import Clases.Empleado;
 import DBMS.DBMS;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
@@ -41,7 +41,7 @@ public class consultarL extends org.apache.struts.action.Action {
 
         HttpSession session = request.getSession(true);
         
-        ArrayList<Usuario> Usuarios = DBMS.getInstance().listarUsuarios();
+        ArrayList<Empleado> Usuarios = DBMS.getInstance().listarEmpleados();
         
         session.setAttribute("user", Usuarios);
         return mapping.findForward(SUCCESS);

@@ -8,6 +8,7 @@
 <struts-config>
     <form-beans>
         <form-bean name="Usuario" type="Clases.Usuario"/>
+        <form-bean name="Empleado" type="Clases.Empleado"/>
     
     </form-beans>
     

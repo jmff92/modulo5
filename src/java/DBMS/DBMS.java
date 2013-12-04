@@ -7,6 +7,7 @@
 package DBMS;
 
 import Clases.Usuario;
+import Clases.Empleado;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -123,15 +124,15 @@ public class DBMS {
         }
     }
     
-    public ArrayList<Usuario> listarUsuarios(){
+    public ArrayList<Empleado> listarEmpleados(){
         
-        ArrayList<Usuario> Usuarios = new ArrayList<Usuario>();
+        ArrayList<Empleado> Empleados = new ArrayList<Empleado>();
         PreparedStatement ps = null;
         try{
             ps = conexion.prepareStatement("SELECT * FROM USUARIO;");
             ResultSet rs = ps.executeQuery();
             while (rs.next()){
-                Usuario u = new Usuario();
+                Empleado u = new Empleado();
                
                 u.setUsbid(rs.getString("usbid"));
                 u.setNombres(rs.getString("nombres"));
@@ -143,13 +144,13 @@ public class DBMS {
                 u.setTelefono_celular(rs.getString("telefono_celular"));
                 u.setTipo(rs.getString("tipo"));
                 
-                Usuarios.add(u);
+                Empleados.add(u);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
         
-        return Usuarios;
+        return Empleados;
     }
     
     public Usuario obtenerUsuario(Usuario u){
@@ -179,4 +180,28 @@ public class DBMS {
         
         return u;
     }
+
+    public boolean agregarEmpleado(Empleado e){
+        PreparedStatement psAgregar = null;
+        try {
+            psAgregar = conexion.prepareStatement(
+                    "INSERT INTO EMPLEADO VALUES (?,?,?,?);");
+            
+            psAgregar.setString(1, e.getCargo());
+            psAgregar.setString(2,e.getAntiguedad());
+            psAgregar.setString(3, e.getTipo());
+            psAgregar.setString(4, e.getUsbid());
+
+                    
+            Integer i = psAgregar.executeUpdate();
+            
+            return i>0;
+            
+        }catch(SQLException ex){
+            ex.printStackTrace();;
+            return false;
+        }
+
+    }
+
 }
