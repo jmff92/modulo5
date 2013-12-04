@@ -55,11 +55,13 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
     <div id="content" class="column grid-10 push-3">
             <div class="inner">
 
+                <h4 align="center">Modulo de Administracion</h4>
+                
         <html:form action="/login">
             <table border="0">
                 <tbody>
                     <tr>
-
+                        
                     </tr>
                     <tr>
                         <td>USBID:</td>
@@ -106,15 +108,15 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
     <div id="block-block-2" class="block block-block first">
   <div class="inner">
                 <div class="content">
-      <p><img alt="" src="/sites/default/files/stikers/logo_ulab.gif"></p>
-<p><img alt="" src="/sites/default/files/stikers/innovar.gif"></p>
-<p><a href="http://www.ulab.usb.ve/jornadas"><img alt="" src="/sites/default/files/stickers_jornadas.jpg"></a></p>
-<p><a href="http://159.90.91.211/sites/diefault/files/catalogo_ulab.pdf"><img alt="" src="/sites/default/files/cat_ulab.jpg"></a></p>
-<p><a href="http://159.90.91.211/node/26"><img alt="" src="/sites/default/files/cons_ulab.jpg"></a></p>
-<p><a href="http://159.90.91.211/node/27"><img alt="" src="/sites/default/files/doc_ulab.jpg"></a></p>
-<p><a href="http://159.90.91.211/node/25"><img alt="" src="/sites/default/files/comit_ulab.jpg"></a></p>
-<p><a href="https://www.facebook.com/pages/Unidad-de-Laboratorios-USB/173900382644914" target="_blank"><img alt="" src="/sites/default/files/stikers/facebook.gif"></a></p>
-<p><img alt="" src="/sites/default/files/somosusb.gif"></p>
+      <p><img alt="" src="images/logo_ulab.gif"></p>
+<p><img alt="" src="images/innovar.gif"></p>
+<p><a href="http://www.ulab.usb.ve/jornadas"><img alt="" src="images/stickers_jornadas.jpg"></a></p>
+<p><a href="http://159.90.91.211/sites/diefault/files/catalogo_ulab.pdf"><img alt="" src="images/cat_ulab.jpg"></a></p>
+<p><a href="http://159.90.91.211/node/26"><img alt="" src="images/cons_ulab.jpg"></a></p>
+<p><a href="http://159.90.91.211/node/27"><img alt="" src="images/doc_ulab.jpg"></a></p>
+<p><a href="http://159.90.91.211/node/25"><img alt="" src="images/comit_ulab.jpg"></a></p>
+<p><a href="https://www.facebook.com/pages/Unidad-de-Laboratorios-USB/173900382644914" target="_blank"><img alt="" src="images/facebook.gif"></a></p>
+<p><img alt="" src="images/somosusb.gif"></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -132,7 +134,7 @@ jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":
   <div class="inner">
                 <div class="content">
       <table align="left" border="0" cellpadding="1" cellspacing="1"><tbody><tr><td valign="bottom" width="95">
-				<a href="http://www.usb.ve"><img alt="" src="/sites/default/files/cebolla_70_45.jpg"></a></td>
+				<a href="http://www.usb.ve"><img alt="" src="images/cebolla_70_45.jpg"></a></td>
 <td valign="bottom">
 				<a href="http://www.usb.ve/home/node/68">e-virtual</a> | <a href="https://webmail.usb.ve/" target="_blank">Correo</a> |<a href="http://www.usb.ve/buscador.php" target="_blank"> </a><a href="https://esopo.usb.ve">esopo</a> |<a href="http://www.usb.ve/buscador.php" target="_blank"> </a><a href="http://www.youtube.com/canalusb" target="_blank">canalUSB</a> | <a href="http://www.usb.ve/agenda.php" target="_blank">Agenda Cultural</a> | <a href="http://usbnoticias.info/" target="_blank">USBnoticias</a> |<span> </span><span> </span><a href="http://www.usb.ve/home/node/55">Calendario</a> |<br>
 				Sede Sartenejas, Baruta, Edo. Miranda - Apartado 89000 - Cable Unibolivar - Caracas Venezuela. Teléfono +58 0212-9063111<br>
