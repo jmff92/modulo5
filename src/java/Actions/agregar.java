@@ -75,10 +75,16 @@ public class agregar extends org.apache.struts.action.Action {
             
             boolean agrego = DBMS.getInstance().agregarUsuario(u);
             
-            u.limpiar();
-            
             if (agrego) {
-                return mapping.findForward(SUCCESS);
+                agrego = DBMS.getInstance().agregarEmpleado(u);
+                
+                if (agrego){
+                
+                    return mapping.findForward(SUCCESS);
+                
+                } else {
+                    return mapping.findForward(FAILURE);
+                }
             } else {
                 return mapping.findForward(FAILURE);
             }

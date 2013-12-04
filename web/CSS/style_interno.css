@@ -36,7 +36,7 @@ body {
   background-position: top;
 */
   font-family: Verdana, Arial, Helvetica, sans-serif;
-  font-size: 11px;
+  font-size: 8px;
   line-height: 1.6em;
   margin: 0;
   padding: 0;
@@ -206,14 +206,16 @@ table {
   width: 100%;
 }
 th {
-  font-weight: 600;
+  font-weight: 100;
   text-align: left;
 }
 th, td {
  /* border: solid #e4e2e0;
   border-width: 0 0 1px 0; */
-  padding: 0.5em;
-  vertical-align: top;
+ font-weight: lighter;
+ font-size: 0.1em;
+ padding: 0.5em;
+ vertical-align: top;
 }
 thead th:last-child,
 tr td:last-child {

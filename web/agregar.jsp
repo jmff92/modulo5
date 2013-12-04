@@ -90,13 +90,38 @@
                         </td>
                     </tr>
                     <tr>
-                        <td> Tipo </td>
+                        <td> Tipo Usuario</td>
                         <td>
                             <html:select name="Empleado" property="tipo">
                                 <html:option value=""></html:option>
+                                <%--
                                 <html:option value="estudiante">Estudiante</html:option>
                                 <html:option value="profesor">Profesor</html:option>
+                                --%>
                                 <html:option value="empleado">Empleado</html:option>
+                            </html:select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Cargo </td>
+                        <td>
+                            <html:text name="Empleado" property="cargo"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Antiguedad </td>
+                        <td>
+                            <html:text name="Empleado" property="antiguedad"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Tipo Empleado</td>
+                        <td>
+                            <html:select name="Empleado" property="tipoE">
+                                <html:option value=""></html:option>
+                                <html:option value="personal admin">Personal Admin</html:option>
+                                <html:option value="tecnico">Tecnico</html:option>
+                                <html:option value="jefe">Jefe</html:option>
                             </html:select>
                         </td>
                     </tr>

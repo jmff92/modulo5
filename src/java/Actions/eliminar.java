@@ -45,6 +45,8 @@ public class eliminar extends org.apache.struts.action.Action{
         
         boolean huboError = false;
         
+        error = u.validate(mapping, request);
+        
         if (error.size() != 0) {
             huboError = true;
         }

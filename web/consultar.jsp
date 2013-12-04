@@ -34,16 +34,19 @@
             @import "CSS/form.css";
             @import "CSS/colors.css";
         </style>
+        <style type="text/css" media="print">
+            @import "CSS/print.css";
+        </style>
         <title>Consultar</title>
     </head>
     <body>
         <h1>Consultar</h1>
         
-        <table border="0" class="altrowstable" id="alternatecolor">
+        <table border="1" class="altrowstable" id="alternatecolor">
                 <thead>
                     <tr>
                         <th width="155px" align="center">
-                            UsbId
+                             UsbId 
                         </th>
                         <th width="155px" align="center">
                             Nombres

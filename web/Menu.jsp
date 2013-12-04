@@ -55,7 +55,7 @@
                     <p>
                         Módulo de Gestión de Administrativa
                     </p>
-                    <iframe name="centro" src="/modulo5/inicio.jsp" height="580" width="521" frameborder="0">
+                    <iframe name="centro" src="/modulo5/inicio.jsp" height="580" width="600" frameborder="0">
                     <p>Your browser does not support iframes.</p>
                     </iframe>
                 </div>
@@ -83,7 +83,7 @@
                             </html:link>
                         </li>
                         <li class="leaf">
-                            <html:link action="consultarL" target="centro">
+                            <html:link action="consultarL" target="centro" >
                                 <p>Consultar </p>
                             </html:link>
                         </li>
@@ -91,7 +91,9 @@
                     </ul>
                 </div>
                 <!-- Parte de la Derecha -->
+                <%--
                 <div id="sidebar-second" class="sidebar grid-3"></div>
+                --%>
             </div>
         </div>
         <footer id="footer" class="section section-footer clearfix" role="footer">
