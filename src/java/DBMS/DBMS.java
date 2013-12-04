@@ -144,6 +144,10 @@ public class DBMS {
                 u.setTelefono_casa(rs.getString("telefono_casa"));
                 u.setTelefono_celular(rs.getString("telefono_celular"));
                 u.setTipo(rs.getString("tipo"));
+                u.setAntiguedad("antiguedad");
+                u.setCargo("cargo");
+                u.setTipoE("e.tipo");
+                
                 
                 Empleados.add(u);
             }

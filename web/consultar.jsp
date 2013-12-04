@@ -70,39 +70,57 @@
                             Telefono Celular
                         </th>
                         <th width="155px" align="center">
-                            Tipo
+                            Tipo Empleado
+                        </th>
+                        <th width="155px" align="center">
+                            Cargo
+                        </th>
+                        <th width="155px" align="center">
+                            Antiguedad
+                        </th>
+                        <th width="155px" align="center">
+                            Tipo Empleado
                         </th>
                     </tr>
                 </thead>
 
-                <logic:iterate name="user" id="Usuario">
+                <logic:iterate name="user" id="Empleado">
                     <tr>
                         <td width="155px" align="center">
-                            <bean:write name="Usuario" property="usbid"/>
+                            <bean:write name="Empleado" property="usbid"/>
                         </td>
                         <td width="155px" align="center">
-                            <bean:write name="Usuario" property="nombres"/>
+                            <bean:write name="Empleado" property="nombres"/>
                         </td>
                         <td width="155px" align="center">
-                            <bean:write name="Usuario" property="apellidos"/>
+                            <bean:write name="Empleado" property="apellidos"/>
                         </td>
                         <td width="155px" align="center">
-                            <bean:write name="Usuario" property="cedula"/>
+                            <bean:write name="Empleado" property="cedula"/>
                         </td>
                         <td width="155px" align="center">
-                            <bean:write name="Usuario" property="correo"/>
+                            <bean:write name="Empleado" property="correo"/>
                         </td>
                         <td width="155px" align="center">
-                            <bean:write name="Usuario" property="direccion"/>
+                            <bean:write name="Empleado" property="direccion"/>
                         </td>
                         <td width="155px" align="center">
-                            <bean:write name="Usuario" property="telefono_casa"/>
+                            <bean:write name="Empleado" property="telefono_casa"/>
                         </td>
                         <td width="155px" align="center">
-                            <bean:write name="Usuario" property="telefono_celular"/>
+                            <bean:write name="Empleado" property="telefono_celular"/>
                         </td>
                         <td width="155px" align="center">
-                            <bean:write name="Usuario" property="tipo"/>
+                            <bean:write name="Empleado" property="tipo"/>
+                        </td>
+                        <td width="155px" align="center">
+                            <bean:write name="Empleado" property="cargo"/>
+                        </td>
+                        <td width="155px" align="center">
+                            <bean:write name="Empleado" property="antiguedad"/>
+                        </td>
+                        <td width="155px" align="center">
+                            <bean:write name="Empleado" property="tipoE"/>
                         </td>
                     </tr>
                 </logic:iterate>
