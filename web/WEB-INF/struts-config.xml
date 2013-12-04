@@ -25,7 +25,7 @@
 
                 
         <action path="/back" type="Actions.backHome" validate="false">
-            <forward name="success" path="/indice.jsp"/>
+            <forward name="success" path="/inicio.jsp"/>
         </action>
         
         <action path="/agregarL"  type="Actions.agregarL" validate="false">

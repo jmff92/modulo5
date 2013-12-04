@@ -37,7 +37,7 @@
     <body class="html front not-logged-in two-sidebars page-node">
         <header id="header" class="section section-header clearfix" role="banner">
             <hgroup class="grid-10">
-                <html:link action="/linkMenu">
+                <html:link action="back" target="centro">
                     <html:img src="http://www.ulab.usb.ve/sites/default/files/logo_drupal.gif" alt="Inicio"/>
                 </html:link>
             </hgroup> 
@@ -53,9 +53,9 @@
                 <div id="content" class="column grid-10 push-3">
                     <h2>Sistema de Gestión de la ULAB</h2><br>
                     <p>
-                        Módulo de Gestión de Inventario
+                        Módulo de Gestión de Administrativa
                     </p>
-                    <iframe src="/modulo5/indice.jsp" height="580" width="521" frameborder="0">
+                    <iframe name="centro" src="/modulo5/inicio.jsp" height="580" width="521" frameborder="0">
                     <p>Your browser does not support iframes.</p>
                     </iframe>
                 </div>
@@ -68,28 +68,23 @@
                 <div id="sidebar-first" class="sidebar grid-3 pull-10">
                     <ul class="menu">
                         <li class="leaf">
-                            <html:link action="/linkAgregarInsumo">
-                                <p>Agregar insumo</p>
+                            <html:link action="agregarL" target="centro">
+                                <p>Agregar </p>
                             </html:link>
                         </li>
                         <li class="leaf">
-                            <html:link action="/linkModificarInsumo">
-                                <p>Modificar insumo</p>
+                            <html:link action="modificarL" target="centro">
+                                <p>Modificar </p>
                             </html:link>
                         </li>
                         <li>
-                            <html:link action="/linkEliminarInsumo">
-                                <p>Eliminar insumo</p>
+                            <html:link action="eliminarL" target="centro">
+                                <p>Eliminar </p>
                             </html:link>
                         </li>
                         <li class="leaf">
-                            <html:link action="/linkConsultarInsumo">
-                                <p>Consultar inventario</p>
-                            </html:link>
-                        </li>
-                        <li class="leaf">
-                            <html:link action="/linkAgregarArchivoInsumo">
-                                <p>Agregar archivo de inventario</p>
+                            <html:link action="consultarL" target="centro">
+                                <p>Consultar </p>
                             </html:link>
                         </li>
                         
