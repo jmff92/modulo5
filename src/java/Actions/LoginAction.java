@@ -1,12 +1,15 @@
+package Actions;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-package com.myapp.struts;
-
 import java.util.*;
+import DBMS.DBMS;
+import Clases.Usuario;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
@@ -38,34 +41,19 @@ public class LoginAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         
-        LoginForm bean = (LoginForm) form;
+        Usuario bean = (Usuario) form;
         
-        String username = bean.getUsbid();
+        String usbid = bean.getUsbid();
         String password = bean.getPassword();
         
-        DB db = new DB();
-        
-        ArrayList<Usuario> users = new ArrayList<Usuario>();
-         
-        users = db.consultar(username, password);
-        
-        if (users.size() == 0) {
+        DBMS db = DBMS.getInstance();
+        Usuario user = db.consultar(bean);
+                
+        if (user == null) {
+            bean.limpiar();
             System.out.println("Usuario inexistente");
             return mapping.findForward(FAILURE);
         }
-
-//        for (Usuario u : users) {
-//            System.out.print(u.getNombre());
-//            System.out.println();
-//            System.out.println(u.getUsbid());
-//        }        
-        
-//        if (!((username.equals("donato")) && 
-//            (password.equals("yatusabes")))) {
-//            
-//            return mapping.findForward(FAILURE);
-//            
-//        }
                 
         return mapping.findForward(SUCCESS);
     }

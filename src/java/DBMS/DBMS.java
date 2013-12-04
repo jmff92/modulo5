@@ -179,4 +179,66 @@ public class DBMS {
         
         return u;
     }
+    
+    public Usuario consultar(Usuario user) {
+    
+        String usbid = user.getUsbid();
+        String password = user.getPassword();
+        
+        PreparedStatement ps;
+        ResultSet rs;
+        
+        try {
+            
+            ps = conexion.prepareStatement("SELECT * FROM USUARIO WHERE usbid=?;");
+            ps.setString(1, usbid);
+            rs = ps.executeQuery();
+            
+            if (!(rs.next() && (password.equals("1234")))) {
+                System.out.println("Usuario inexistente.");
+                return null;
+            }
+
+            user.setUsbid(usbid);
+            user.setPassword(password);
+            user.setNombres(rs.getString("nombres"));
+            user.setApellidos(rs.getString("apellidos"));
+            user.setCedula(rs.getInt("cedula"));
+            user.setCorreo(rs.getString("correo"));
+            user.setDireccion(rs.getString("direccion"));
+            user.setTelefono_casa(rs.getString("telefono_casa"));
+            user.setTelefono_celular(rs.getString("telefono_celular"));
+            user.setTipo(rs.getString("tipo"));                 
+                    
+        } catch(SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return user;
+        
+    }
+    
+    // Main para pruebas sobre la base de datos.
+    public static void main(String args[]) {
+        
+        Usuario user = new Usuario();
+        
+        user.setUsbid("10-00000");
+        user.setPassword("1234");
+                
+        try {
+            
+            DBMS db = DBMS.getInstance();
+            user = db.consultar(user);
+                        
+            System.out.print(user.getNombres());
+            System.out.println();
+            System.out.println(user.getUsbid());
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }        
+    
 }

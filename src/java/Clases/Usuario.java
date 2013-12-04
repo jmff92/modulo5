@@ -19,6 +19,7 @@ import org.apache.struts.action.ActionMessage;
 public class Usuario extends org.apache.struts.action.ActionForm {
     
     private String usbid;
+    private String password;
     private String nombres;
     private String apellidos;
     private int cedula;
@@ -35,6 +36,7 @@ public class Usuario extends org.apache.struts.action.ActionForm {
     
     public void limpiar(){
         usbid = null;
+        password = null;
         nombres = null;
         apellidos = null;
         cedula = 0;
@@ -105,6 +107,14 @@ public class Usuario extends org.apache.struts.action.ActionForm {
      */
     public void setUsbid(String usbid) {
         this.usbid = usbid;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     /**
