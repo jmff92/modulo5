@@ -22,9 +22,26 @@ public class Empleado extends Usuario{
     private String tipoE;
 
     private String errorAntiguedad;
+
     
+    /**
+     *
+     */
     public Empleado() {
         super();
+        this.cargo = null;
+        this.antiguedad = null;
+        this.tipoE = null;
+    }
+    
+    /**
+     *
+     */
+    public void limpiarE(){
+        this.limpiar();
+        this.cargo = null;
+        this.antiguedad = null;
+        this.tipoE = null;
     }
     
     /**

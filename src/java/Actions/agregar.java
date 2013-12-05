@@ -79,7 +79,7 @@ public class agregar extends org.apache.struts.action.Action {
                 agrego = DBMS.getInstance().agregarEmpleado(u);
                 
                 if (agrego){
-                
+                    u.limpiarE();
                     return mapping.findForward(SUCCESS);
                 
                 } else {

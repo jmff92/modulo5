@@ -101,7 +101,7 @@
                                 <html:option value="empleado">Empleado</html:option>
                             </html:select>
                         </td>
-                    </tr>
+                    </tr>   
                     <tr>
                         <td> Cargo </td>
                         <td>

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : login
-    Created on : Dec 4, 2013, 9:25:16 PM
+    Document   : seleccion
+    Created on : Dec 5, 2013, 8:44:09 AM
     Author     : michelle
 --%>
 
@@ -73,29 +73,7 @@
 
 <!--                <h4 align="center">Modulo de Administracion</h4>-->
                 
-        <html:form action="/login">
-            <table border="0">
-                <tbody>
-                    <tr align="center" style="color:red">
-                        <center style="color:red">
-                            <html:errors/>    
-                        </center>
-                    </tr>
-                    <tr>
-                        <td align="right">USBID</td>
-                        <td><html:text property="usbid" /></td>
-                    </tr>
-                    <tr>
-                        <td align="right">Password</td>
-                        <td><html:password property="password" /></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td><html:submit value="Entrar" /></td>
-                    </tr>
-                </tbody>
-            </table>
-        </html:form>                
+                
                                                                
       <a href="/rss.xml" class="feed-icon" title="Subscribe to Unidad de Laboratoris RSS"></a>    
     </div>

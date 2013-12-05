@@ -36,7 +36,7 @@
         <title>Lo logre</title>
     </head>
     <body>
-        <h1>Success</h1>
+        <br>Operacion Exitosa</br>
     
         <html:link action="back">
             <h2>

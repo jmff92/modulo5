@@ -8,6 +8,7 @@ package DBMS;
 
 import Clases.Usuario;
 import Clases.Empleado;
+import Clases.LoginForm;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -144,10 +145,9 @@ public class DBMS {
                 u.setTelefono_casa(rs.getString("telefono_casa"));
                 u.setTelefono_celular(rs.getString("telefono_celular"));
                 u.setTipo(rs.getString("tipo"));
-                u.setAntiguedad("antiguedad");
-                u.setCargo("cargo");
-                u.setTipoE("e.tipo");
-                
+                u.setAntiguedad(rs.getString("antiguedad"));
+                u.setCargo(rs.getString("cargo"));
+                u.setTipoE(rs.getString("tipo_empleado")); 
                 
                 Empleados.add(u);
             }
@@ -165,6 +165,7 @@ public class DBMS {
             ps = conexion.prepareStatement("SELECT * FROM USUARIO WHERE usbid=?;");
             ps.setString(1, u.getUsbid());
             ResultSet rs = ps.executeQuery();
+            
             while (rs.next()){
                
                 u.setUsbid(rs.getString("usbid"));
@@ -182,37 +183,49 @@ public class DBMS {
             ex.printStackTrace();
         }
         
+        if(u.getNombres() == null) {
+            return null;
+        }
         
         return u;
     }
 
-    public boolean agregarEmpleado(Empleado e){
-        PreparedStatement psAgregar = null;
+    public boolean agregarEmpleado(Empleado e) {
+        
+        PreparedStatement ps;
+        Integer filas;
+        
         try {
-            psAgregar = conexion.prepareStatement(
-                    "INSERT INTO EMPLEADO VALUES (?,?,?,?);");
-            
-            psAgregar.setString(1, e.getCargo());
-            psAgregar.setString(2,e.getAntiguedad());
-            psAgregar.setString(3, e.getTipo());
-            psAgregar.setString(4, e.getUsbid());
 
-                    
-            Integer i = psAgregar.executeUpdate();
+            ps = conexion.prepareStatement("INSERT INTO EMPLEADO VALUES (?,?,?,?);");
+
+            ps.setString(1, e.getCargo());
+            ps.setString(2, e.getAntiguedad());
+            ps.setString(3, e.getTipoE());
+            ps.setString(4, e.getUsbid());
             
-            return i>0;
+            System.out.print(e.getCargo());
+            System.out.print(e.getAntiguedad());            
+            System.out.print(e.getTipoE());            
+            System.out.print(e.getUsbid());            
+                    
+            filas = ps.executeUpdate();
+            
+            return filas > 0;
             
         }catch(SQLException ex){
-            ex.printStackTrace();;
+            ex.printStackTrace();
             return false;
         }
 
     }
     
-    public Empleado consultar(Empleado user) {
+    public Empleado consultar(LoginForm user) {
     
         String usbid = user.getUsbid();
         String password = user.getPassword();
+        
+        Empleado emp = new Empleado();        
                 
         PreparedStatement ps;
         ResultSet rs;
@@ -228,50 +241,67 @@ public class DBMS {
                 System.out.println("Usuario inexistente.");
                 return null;
             }
-
-            user.setUsbid(usbid);
-            user.setPassword(password);
-            user.setNombres(rs.getString("nombres"));
-            user.setApellidos(rs.getString("apellidos"));
-            user.setCedula(rs.getInt("cedula"));
-            user.setCorreo(rs.getString("correo"));
-            user.setDireccion(rs.getString("direccion"));
-            user.setTelefono_casa(rs.getString("telefono_casa"));
-            user.setTelefono_celular(rs.getString("telefono_celular"));
-            user.setTipo(rs.getString("tipo"));  
-            user.setCargo(rs.getString("cargo"));
-            user.setAntiguedad(rs.getString("antiguedad"));
-            user.setTipoE(rs.getString("tipoE"));
+            
+            emp.setUsbid(usbid);
+            emp.setNombres(rs.getString("nombres"));
+            emp.setApellidos(rs.getString("apellidos"));
+            emp.setCedula(rs.getInt("cedula"));
+            emp.setCorreo(rs.getString("correo"));
+            emp.setDireccion(rs.getString("direccion"));
+            emp.setTelefono_casa(rs.getString("telefono_casa"));
+            emp.setTelefono_celular(rs.getString("telefono_celular"));
+            emp.setTipo(rs.getString("tipo"));  
+//            emp.setCargo(rs.getString("cargo"));
+//            emp.setAntiguedad(rs.getString("antiguedad"));
+//            emp.setTipoE(rs.getString("tipo_empleado"));  
                     
         } catch(SQLException ex) {
             ex.printStackTrace();
         }
         
-        return user;
+        return emp;
         
     }
     
     // Main para pruebas sobre la base de datos.
     public static void main(String args[]) {
         
-        Empleado user = new Empleado();
+        Empleado emp = new Empleado();
         
-        user.setUsbid("10-00000");
-//        user.setPassword("1234");
-                
+        emp.setCargo("Jefe");
+        emp.setAntiguedad("1991");
+        emp.setTipoE("Jefe");
+        emp.setUsbid("09-10278");
+        
         try {
             
             DBMS db = DBMS.getInstance();
-            user = db.consultar(user);
-                        
-            System.out.print(user.getNombres());
-            System.out.println();
-            System.out.println(user.getUsbid());
+            boolean agrego = db.agregarEmpleado(emp);  
+            
+            System.out.println(agrego);
             
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+                
+//        LoginForm user = new LoginForm();
+//        
+//        user.setUsbid("10-00000");
+//        user.setPassword("1234");
+//                
+//        try {
+//            
+//            DBMS db = DBMS.getInstance();
+//            Empleado emp = db.consultar(user);
+//                        
+//            System.out.print(emp.getNombres());
+//            System.out.println();
+//            System.out.println(emp.getUsbid());
+//            
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+
     }   
 
 }

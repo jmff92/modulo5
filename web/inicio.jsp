@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://struts.apache.org/tags-html" prefix="html" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -33,8 +35,18 @@
         <title>inicio</title>
     </head>
     <body>
-        <h6 >
-            Bienvenidos al catalogo de personal
-        </h6>
+        
+        <%--<html:link action="personal">--%>
+            <!--<h2>-->
+                <!--Catalogo de Personal-->
+            <!--</h2>-->
+        <%--</html:link>--%>                
+        
+        <%--<html:link action="salir">--%>
+            <!--<h2>-->
+                <!--Salir-->
+            <!--</h2>-->
+        <%--</html:link>--%>        
+    
     </body>
 </html>

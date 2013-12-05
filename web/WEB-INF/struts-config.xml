@@ -7,6 +7,7 @@
 
 <struts-config>
     <form-beans>
+        <form-bean name="LoginForm" type="Clases.LoginForm"/>
         <form-bean name="Usuario" type="Clases.Usuario"/>
         <form-bean name="Empleado" type="Clases.Empleado"/>
     
@@ -23,7 +24,8 @@
     <action-mappings>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
 
-        <action path="/login" name="Empleado" type="Actions.LoginAction" validate="false">
+        <action input="/login.jsp" path="/login" name="LoginForm" 
+                scope="session" type="Actions.LoginAction">
             <forward name="success" path="/Menu.jsp"/>
             <forward name="failure" path="/login.jsp"/>
         </action>        
@@ -50,22 +52,33 @@
         
         <action path="/premodificar" name="Usuario"  type="Actions.premodificar" validate="false">
             <forward name="success" path="/modificar.jsp"/>
-            <forward name="failure" path="/fail.jsp"/>
+            <forward name="failure" path="/premodificar.jsp"/>
         </action>
         
         <action path="/agregar" name="Empleado" type="Actions.agregar" validate="false">
             <forward name="success" path="/lologre.jsp"/>
-            <forward name="failure" path="/fail.jsp"/>
+            <forward name="failure" path="/agregar.jsp"/>
         </action>
+        
         <action path="/modificar" name="Usuario" type="Actions.modificar" validate="false">
             <forward name="success" path="/lologre.jsp"/>
             <forward name="failure" path="/fail.jsp"/>
         </action>
+        
         <action path="/eliminar" name="Usuario" type="Actions.eliminar" validate="false">
-            <forward name="success" path="/lologre.jsp"/>
-            <forward name="failure" path="/fail.jsp"/>
+            <forward name="success" path="/Menu.jsp"/>
+            <forward name="failure" path="/eliminar.jsp"/>
         </action>
-                         
+        
+        <action path="/personal" type="Actions.personal" validate="false">
+            <forward name="success" path="/Menu.jsp"/>
+        </action>
+
+"
+<!--        <action path="/salir" type="Actions.salir" validate="false">
+            <forward name="success" path="/login.jsp"/>
+        </action>-->
+        
     </action-mappings>
     
     <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>

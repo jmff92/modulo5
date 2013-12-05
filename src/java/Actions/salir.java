@@ -1,33 +1,25 @@
-package Actions;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-import java.util.*;
-import DBMS.DBMS;
-import Clases.LoginForm;
-import Clases.Empleado;
+package Actions;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
-import org.apache.struts.action.ActionMessage;
 
 /**
  *
  * @author michelle
  */
-public class LoginAction extends org.apache.struts.action.Action {
+public class salir extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
-    private static final String FAILURE = "failure";
 
     /**
      * This is the action called from the Struts framework.
@@ -44,24 +36,6 @@ public class LoginAction extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         
-        LoginForm bean = (LoginForm) form;
-        
-        ActionErrors errors = bean.validate(mapping, request);
-        
-        if (errors.size() != 0) {
-            bean.reset();
-            return mapping.findForward(FAILURE);
-        }
-        
-        DBMS db = DBMS.getInstance();
-        Empleado user = db.consultar(bean);
-                
-        if (user == null) {
-            bean.reset();
-//            errors.add("credenciales", new ActionMessage("error.credenciales"));
-            return mapping.findForward(FAILURE);
-        }
-                
         return mapping.findForward(SUCCESS);
     }
 }

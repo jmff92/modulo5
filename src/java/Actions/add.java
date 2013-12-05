@@ -6,25 +6,24 @@
 
 package Actions;
 
-import Clases.Usuario;
+import Clases.Empleado;
 import DBMS.DBMS;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 /**
  *
- * @author luismiranda
+ * @author michelle
  */
-public class premodificar extends org.apache.struts.action.Action {
+public class add extends org.apache.struts.action.Action {
+
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
     private static final String FAILURE = "failure";
-    
+
     /**
      * This is the action called from the Struts framework.
      *
@@ -39,45 +38,17 @@ public class premodificar extends org.apache.struts.action.Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-
-        Usuario u = (Usuario) form;
-        HttpSession session = request.getSession(true);
         
-        ActionErrors error=null;
+        Empleado emp = (Empleado) form; 
         
-        if(u.getUsbid()==""){
+        DBMS db = DBMS.getInstance();
+        
+        boolean agrego = db.agregarEmpleado(emp);
+        
+        if (!agrego) {
             return mapping.findForward(FAILURE);
         }
         
-        error = u.validate(mapping, request);
-        
-        if(error == null){
-            return mapping.findForward(FAILURE);
-        }
-        
-        boolean huboError = false;
-        
-        if (error.size() != 0) {
-            huboError = true;
-        }
-        
-                if (huboError) {
-            saveErrors(request, error);
-            return mapping.findForward(FAILURE);
-            
-        } else {
-
-            Usuario user = DBMS.getInstance().obtenerUsuario(u);
-            
-            if (user == null) {
-                u.limpiar();
-                return mapping.findForward(FAILURE);
-            }
-            
-            session.setAttribute("user", user);
-            return mapping.findForward(SUCCESS);
-        }
-        
-    }        
-    
+        return mapping.findForward(SUCCESS);
+    }
 }
