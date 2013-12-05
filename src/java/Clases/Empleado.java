@@ -17,53 +17,16 @@ import org.apache.struts.action.ActionMessage;
  */
 public class Empleado extends Usuario{
     
-    private String usbid;
     private String cargo;
     private String antiguedad;
     private String tipoE;
 
     private String errorAntiguedad;
     
-    /**
-     * This is the action called from the Struts framework.
-     *
-     * @param mapping The ActionMapping used to select this instance.
-     * @param request The HTTP Request we are processing.
-     * @return
-     */
-    @Override
-    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request){
-        ActionErrors errors = new ActionErrors();
-        return errors;
+    public Empleado() {
+        super();
     }
     
-    public ActionErrors validateAntiguedad(ActionMapping mapping, HttpServletRequest request){
-        ActionErrors errors = new ActionErrors();
-        
-        this.setErrorAntiguedad("");
-        
-        if(!getErrorAntiguedad().matches("\\d*")){
-            this.setErrorAntiguedad("error");
-            errors.add("error", new ActionMessage("error.codigo.required"));
-        }
-        
-        return errors;
-    }
-    
-    /**
-     * @return the usbid
-     */
-    public String getUsbid() {
-        return usbid;
-    }
-
-    /**
-     * @param usbid the usbid to set
-     */
-    public void setUsbid(String usbid) {
-        this.usbid = usbid;
-    }
-
     /**
      * @return the cargo
      */
@@ -118,8 +81,32 @@ public class Empleado extends Usuario{
      */
     public void setErrorAntiguedad(String errorAntiguedad) {
         this.errorAntiguedad = errorAntiguedad;
+    }    
+    
+    /**
+     * This is the action called from the Struts framework.
+     *
+     * @param mapping The ActionMapping used to select this instance.
+     * @param request The HTTP Request we are processing.
+     * @return
+     */
+    @Override
+    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request){
+        ActionErrors errors = new ActionErrors();
+        return errors;
     }
     
+    public ActionErrors validateAntiguedad(ActionMapping mapping, HttpServletRequest request){
+        ActionErrors errors = new ActionErrors();
+        
+        this.setErrorAntiguedad("");
+        
+        if(!getErrorAntiguedad().matches("\\d*")){
+            this.setErrorAntiguedad("error");
+            errors.add("error", new ActionMessage("error.codigo.required"));
+        }
+        
+        return errors;
+    } 
     
-
 }

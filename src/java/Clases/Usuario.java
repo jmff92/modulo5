@@ -18,32 +18,21 @@ import org.apache.struts.action.ActionMessage;
  */
 public class Usuario extends org.apache.struts.action.ActionForm {
     
-    private String usbid;
-    private String nombres;
-    private String apellidos;
-    private int cedula;
-    private String correo;
-    private String direccion;
-    private String telefono_casa;
-    private String telefono_celular;
-    private String tipo;
+    protected String usbid;
+    protected String password;
+    protected String nombres;
+    protected String apellidos;
+    protected int cedula;
+    protected String correo;
+    protected String direccion;
+    protected String telefono_casa;
+    protected String telefono_celular;
+    protected String tipo;
     
-    private String errorUsbid;
-    private String errorCorreo;
-    private String errorTelefono_casa;
-    private String errorTelefono_celular;
-    
-    public void limpiar(){
-        usbid = null;
-        nombres = null;
-        apellidos = null;
-        cedula = 0;
-        correo = null;
-        direccion = null;
-        telefono_casa = null;
-        telefono_celular = null;
-        tipo = null;
-    }
+    protected String errorUsbid;
+    protected String errorCorreo;
+    protected String errorTelefono_casa;
+    protected String errorTelefono_celular;
     
     /**
      *
@@ -51,46 +40,6 @@ public class Usuario extends org.apache.struts.action.ActionForm {
     public Usuario() {
         super();
         // TODO Auto-generated constructor stub
-    }
-
-    /**
-     * This is the action called from the Struts framework.
-     *
-     * @param mapping The ActionMapping used to select this instance.
-     * @param request The HTTP Request we are processing.
-     * @return
-     */
-    @Override
-    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request){
-        ActionErrors errors = new ActionErrors();
-        return errors;
-    }
-    
-    public ActionErrors validateTodo(ActionMapping mapping, HttpServletRequest request) {
-        ActionErrors errors = new ActionErrors();
-
-        this.setErrorUsbid("");
-        this.setErrorCorreo("");
-        this.setErrorTelefono_casa("");
-        this.setErrorTelefono_celular("");
-        
-        if (getCorreo().indexOf("@")==-1){
-            this.setErrorCorreo("error");
-            errors.add("correo", new ActionMessage("error.codigo.required"));
-        }
-        
-        if (!getTelefono_casa().matches("\\d{11}")){
-            this.setErrorTelefono_casa("error");
-            errors.add("telefono_casa", new ActionMessage("error.codigo.required"));
-        }
-        
-        if (!getTelefono_celular().matches("\\d{11}")){
-            this.setErrorTelefono_celular("error");
-            errors.add("telefono_celular", new ActionMessage("error.codigo.required"));
-        }
-
-        
-        return errors;
     }
 
     /**
@@ -105,6 +54,22 @@ public class Usuario extends org.apache.struts.action.ActionForm {
      */
     public void setUsbid(String usbid) {
         this.usbid = usbid;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     *
+     * @param password
+     */
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     /**
@@ -273,5 +238,59 @@ public class Usuario extends org.apache.struts.action.ActionForm {
      */
     public void setErrorTelefono_celular(String errorTelefono_celular) {
         this.errorTelefono_celular = errorTelefono_celular;
+    }    
+    
+    public void limpiar() {
+        this.usbid = null;
+        this.password = null;
+        this.nombres = null;
+        this.apellidos = null;
+        this.cedula = 0;
+        this.correo = null;
+        this.direccion = null;
+        this.telefono_casa = null;
+        this.telefono_celular = null;
+        this.tipo = null;
     }
+
+    /**
+     * This is the action called from the Struts framework.
+     *
+     * @param mapping The ActionMapping used to select this instance.
+     * @param request The HTTP Request we are processing.
+     * @return
+     */
+    @Override
+    public ActionErrors validate(ActionMapping mapping, HttpServletRequest request){
+        ActionErrors errors = new ActionErrors();
+        return errors;
+    }
+    
+    public ActionErrors validateTodo(ActionMapping mapping, HttpServletRequest request) {
+        ActionErrors errors = new ActionErrors();
+
+        this.setErrorUsbid("");
+        this.setErrorCorreo("");
+        this.setErrorTelefono_casa("");
+        this.setErrorTelefono_celular("");
+        
+        if (getCorreo().indexOf("@")==-1){
+            this.setErrorCorreo("error");
+            errors.add("correo", new ActionMessage("error.codigo.required"));
+        }
+        
+        if (!getTelefono_casa().matches("\\d{11}")){
+            this.setErrorTelefono_casa("error");
+            errors.add("telefono_casa", new ActionMessage("error.codigo.required"));
+        }
+        
+        if (!getTelefono_celular().matches("\\d{11}")){
+            this.setErrorTelefono_celular("error");
+            errors.add("telefono_celular", new ActionMessage("error.codigo.required"));
+        }
+
+        
+        return errors;
+    }
+
 }

@@ -23,6 +23,10 @@
     <action-mappings>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
 
+        <action path="/login" name="Empleado" type="Actions.LoginAction" validate="false">
+            <forward name="success" path="/Menu.jsp"/>
+            <forward name="failure" path="/login.jsp"/>
+        </action>        
                 
         <action path="/back" type="Actions.backHome" validate="false">
             <forward name="success" path="/inicio.jsp"/>
