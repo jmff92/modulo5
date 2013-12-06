@@ -37,6 +37,14 @@
     </head>
     <body>
         <h1>Eliminar</h1>
+    <center style="color:red;background-color:lightcoral" align="center">
+        <html:errors/>    
+    </center>
+        <logic:present name="lologreE">
+        <center style="color:green;background-color: springgreen" align="center">
+            Se elimino exitosamente    
+        </center>
+            </logic:present>
         <html:form action="eliminar">
             <table border="0">
                 <tbody>
