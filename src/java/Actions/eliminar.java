@@ -59,9 +59,9 @@ public class eliminar extends org.apache.struts.action.Action{
             
             boolean eliminar = DBMS.getInstance().eliminarUsuario(u);
             
-            u.limpiar();
             
             if (eliminar) {
+                u.limpiar();
                 session.setAttribute("lologreE","conga!");
                 return mapping.findForward(SUCCESS);
             } else {

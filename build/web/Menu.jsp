@@ -52,9 +52,30 @@
                 -->
                 <div id="content" class="column grid-10 push-3">
                     <h2>Sistema de Gestión de la ULAB</h2><br>
-                    <p>
-                        Módulo de Gestión de Administrativa
-                    </p>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>
+                                    Módulo de Gestión de Administrativa
+                                </p>
+                            </td>
+                            <td>
+                                Usuario:
+                                <b style="color:#126598;font-weight:bold" align="left">
+                                    <bean:write name="LoginForm" property="usbid"/>
+                                </b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+                                <html:link action="logout" >
+                                    <p>Cerrar Session</p>
+                                </html:link>
+                            </td>
+                        </tr>
+                    </table>
+                    
                     <iframe name="centro" src="/modulo5/inicio.jsp" height="580" width="600" frameborder="0">
                     <p>Your browser does not support iframes.</p>
                     </iframe>

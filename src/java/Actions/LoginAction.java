@@ -28,7 +28,9 @@ public class LoginAction extends org.apache.struts.action.Action {
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
     private static final String FAILURE = "failure";
-
+    private static final String JEFE = "jefe";
+    private static final String TECNICO = "tecnico";
+    
     /**
      * This is the action called from the Struts framework.
      *
@@ -52,14 +54,23 @@ public class LoginAction extends org.apache.struts.action.Action {
             bean.reset();
             return mapping.findForward(FAILURE);
         }
+
+        Empleado dummy = new Empleado();
+        dummy.setUsbid(bean.getUsbid());
         
         DBMS db = DBMS.getInstance();
-        Empleado user = db.consultar(bean);
+        Empleado user = db.obtenerEmpleado(dummy);
                 
         if (user == null) {
             bean.reset();
 //            errors.add("credenciales", new ActionMessage("error.credenciales"));
             return mapping.findForward(FAILURE);
+        }
+        
+        if (user.getTipoE().contentEquals("jefe")){
+            return mapping.findForward(JEFE);
+        }else if(user.getTipoE().contentEquals("tecnico")){
+            return mapping.findForward(TECNICO);
         }
                 
         return mapping.findForward(SUCCESS);

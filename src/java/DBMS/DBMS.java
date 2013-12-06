@@ -60,10 +60,10 @@ public class DBMS {
             psAgregar.setString(2, u.getNombres());
             psAgregar.setString(3, u.getApellidos());
             psAgregar.setInt(4, u.getCedula());
-            psAgregar.setString(5, " ");
-            psAgregar.setString(6, " ");
-            psAgregar.setString(7, " ");
-            psAgregar.setString(8, " ");
+            psAgregar.setString(5, "");
+            psAgregar.setString(6, "");
+            psAgregar.setString(7, "");
+            psAgregar.setString(8, "");
             psAgregar.setString(9, u.getTipo());
                     
             Integer i = psAgregar.executeUpdate();

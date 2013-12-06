@@ -24,14 +24,20 @@
     <action-mappings>
         <action path="/Welcome" forward="/welcomeStruts.jsp"/>
 
-        <action input="/login.jsp" path="/login" name="LoginForm" 
+        <action input="/login.jsp" path="/login" name="LoginForm"
                 scope="session" type="Actions.LoginAction">
             <forward name="success" path="/Menu.jsp"/>
             <forward name="failure" path="/login.jsp"/>
+            <forward name="jefe" path="/Menu.jsp"/>
+            <forward name="tecnico" path="/MenuEmp.jsp"/>
         </action>        
                 
         <action path="/back" type="Actions.backHome" validate="false">
             <forward name="success" path="/inicio.jsp"/>
+        </action>
+        
+        <action path="/logout" name="LoginForm" type="Actions.logout" validate="false">
+            <forward name="success" path="/login.jsp"/>
         </action>
         
         <action path="/agregarL" name="Empleado"  type="Actions.agregarL" validate="false">

@@ -69,13 +69,14 @@
                         <tr>
                             <td></td>
                             <td>
-                                <html:link action="logout" >
+                                <html:link action="logout">
                                     <p>Cerrar Session</p>
                                 </html:link>
                             </td>
                         </tr>
                     </table>
                     
+
                     <iframe name="centro" src="/modulo5/inicio.jsp" height="580" width="600" frameborder="0">
                     <p>Your browser does not support iframes.</p>
                     </iframe>
@@ -89,18 +90,8 @@
                 <div id="sidebar-first" class="sidebar grid-3 pull-10">
                     <ul class="menu">
                         <li class="leaf">
-                            <html:link action="agregarL" target="centro">
-                                <p>Agregar </p>
-                            </html:link>
-                        </li>
-                        <li class="leaf">
                             <html:link action="modificarL" target="centro">
                                 <p>Modificar </p>
-                            </html:link>
-                        </li>
-                        <li>
-                            <html:link action="eliminarL" target="centro">
-                                <p>Eliminar </p>
                             </html:link>
                         </li>
                         <li class="leaf">
