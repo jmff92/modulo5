@@ -270,7 +270,6 @@ public class DBMS {
             rs = ps.executeQuery();
             
             if (!(rs.next() && (password.equals("1234")))) {
-                System.out.println("Usuario inexistente.");
                 return null;
             }
             

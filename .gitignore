@@ -3,6 +3,8 @@ nbproject/private/*
 *.war
 /dist/
 
+nbproject/
+
 *.class
 
 # Package Files #
