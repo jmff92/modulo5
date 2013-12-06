@@ -26,7 +26,8 @@
 
         <action input="/login.jsp" path="/login" name="LoginForm" 
                 scope="session" type="Actions.LoginAction">
-            <forward name="success" path="/Menu.jsp"/>
+            <forward name="success" path="/empleado2.jsp"/>
+            <forward name="exito" path="/Menu.jsp"/>
             <forward name="failure" path="/login.jsp"/>
         </action>        
                 

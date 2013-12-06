@@ -27,6 +27,7 @@ public class LoginAction extends org.apache.struts.action.Action {
 
     /* forward name="success" path="" */
     private static final String SUCCESS = "success";
+    private static final String EXITO = "exito";
     private static final String FAILURE = "failure";
 
     /**
@@ -60,8 +61,17 @@ public class LoginAction extends org.apache.struts.action.Action {
             bean.reset();
 //            errors.add("credenciales", new ActionMessage("error.credenciales"));
             return mapping.findForward(FAILURE);
+            
+        } 
+
+        if (user.getTipoE().equals("jefe")) {
+            return mapping.findForward(EXITO);
+            
+        } else if (user.getTipoE().equals("tecnico")) {
+            return mapping.findForward(SUCCESS);
         }
-                
-        return mapping.findForward(SUCCESS);
+        
+        return mapping.findForward(FAILURE);
+                      
     }
 }

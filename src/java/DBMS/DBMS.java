@@ -264,15 +264,16 @@ public class DBMS {
         
         try {
             
-            ps = conexion.prepareStatement("SELECT * FROM USUARIO WHERE usbid=?;");            
-//            ps = conexion.prepareStatement("SELECT * FROM EMPLEADO WHERE usbid=?;");
+//            ps = conexion.prepareStatement("SELECT * FROM USUARIO WHERE usbid=?;");            
+            ps = conexion.prepareStatement("SELECT * FROM EMPLEADO NATURAL JOIN USUARIO WHERE usbid=?;");
             ps.setString(1, usbid);
             rs = ps.executeQuery();
             
             if (!(rs.next() && (password.equals("1234")))) {
                 return null;
             }
-            
+
+            System.out.println(rs.getString("tipo_empleado"));
             emp.setUsbid(usbid);
             emp.setNombres(rs.getString("nombres"));
             emp.setApellidos(rs.getString("apellidos"));
@@ -282,9 +283,9 @@ public class DBMS {
             emp.setTelefono_casa(rs.getString("telefono_casa"));
             emp.setTelefono_celular(rs.getString("telefono_celular"));
             emp.setTipo(rs.getString("tipo"));  
-//            emp.setCargo(rs.getString("cargo"));
-//            emp.setAntiguedad(rs.getString("antiguedad"));
-//            emp.setTipoE(rs.getString("tipo_empleado"));  
+            emp.setCargo(rs.getString("cargo"));
+            emp.setAntiguedad(rs.getString("antiguedad"));
+            emp.setTipoE(rs.getString("tipo_empleado"));  
                     
         } catch(SQLException ex) {
             ex.printStackTrace();
