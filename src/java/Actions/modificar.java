@@ -7,6 +7,7 @@
 package Actions;
 
 import Clases.Usuario;
+import Clases.Empleado;
 import DBMS.DBMS;
 
 import javax.servlet.http.HttpServletRequest;
@@ -42,7 +43,7 @@ public class modificar extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
         
-        Usuario u = (Usuario) form;
+        Empleado u = (Empleado) form;
         HttpSession session = request.getSession(true);
         
         ActionErrors error = null;
@@ -56,17 +57,19 @@ public class modificar extends org.apache.struts.action.Action {
         
         if (huboError) {
             saveErrors(request, error);
+            session.removeAttribute("lologre");
             return mapping.findForward(FAILURE);
             
         } else {
             
             boolean agrego = DBMS.getInstance().modificarUsuario(u);
             
-            u.limpiar();
-            
+
             if (agrego) {
+                session.setAttribute("lologre","conga!");
                 return mapping.findForward(SUCCESS);
             } else {
+                session.removeAttribute("lologre");
                 return mapping.findForward(FAILURE);
             }
         }

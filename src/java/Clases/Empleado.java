@@ -120,10 +120,42 @@ public class Empleado extends Usuario{
         
         if(!getErrorAntiguedad().matches("\\d*")){
             this.setErrorAntiguedad("error");
-            errors.add("error", new ActionMessage("error.codigo.required"));
+            errors.add("error", new ActionMessage("error.empleado.antiguedad"));
         }
         
         return errors;
     } 
-    
+     
+    @Override
+    public ActionErrors validateTodo(ActionMapping mapping, HttpServletRequest request){
+        ActionErrors errors = new ActionErrors();
+        
+        this.setErrorAntiguedad("");
+        
+        if(this.getApellidos()==null||this.getCorreo()==null||this.getDireccion()==null
+                ||this.getNombres()==null||this.getTelefono_casa()==null
+                ||this.getTelefono_celular()==null||this.getTipo().contentEquals("")
+                ||this.getUsbid()==null
+                ||this.getApellidos().contentEquals("")
+                ||this.getCorreo().contentEquals("")
+                ||this.getDireccion().contentEquals("")
+                ||this.getNombres().contentEquals("")
+                ||this.getTelefono_celular().contentEquals("")
+                ||this.getUsbid().contentEquals("")
+                ||this.getCargo().contentEquals("")
+                ||this.getAntiguedad().contentEquals("")
+                ||this.getTipoE().contentEquals("")){
+           
+            errors.add("error",new ActionMessage("error.empleado.vacio"));
+        
+        }
+        
+        if(!getErrorAntiguedad().matches("\\d*")){
+            this.setErrorAntiguedad("error");
+            errors.add("error", new ActionMessage("error.empleado.antiguedad"));
+        }
+        
+        return errors;
+    } 
+
 }

@@ -46,8 +46,8 @@
             <forward name="success" path="/consultar.jsp"/>
         </action>
         
-        <action path="/modificarL"  type="Actions.modificarL" validate="false">
-            <forward name="success" path="/premodificar.jsp"/>
+        <action path="/modificarL" name="LoginForm"  type="Actions.premodificar" validate="false">
+            <forward name="success" path="/modificar.jsp"/>
         </action>
         
         <action path="/premodificar" name="LoginForm"  type="Actions.premodificar" validate="false">
@@ -61,8 +61,8 @@
         </action>
         
         <action path="/modificar" name="Empleado" type="Actions.modificar" validate="false">
-            <forward name="success" path="/lologre.jsp"/>
-            <forward name="failure" path="/fail.jsp"/>
+            <forward name="success" path="/modificar.jsp"/>
+            <forward name="failure" path="/modificar.jsp"/>
         </action>
         
         <action path="/eliminar" name="Usuario" type="Actions.eliminar" validate="false">

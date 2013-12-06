@@ -46,6 +46,7 @@ public class premodificar extends org.apache.struts.action.Action {
         u.setUsbid(l.getUsbid());
         
         HttpSession session = request.getSession(true);
+        session.removeAttribute("lologre");
         
         ActionErrors error=null;
         

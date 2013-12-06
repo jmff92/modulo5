@@ -37,6 +37,14 @@
     </head>
     <body>
         <h1>Modificar</h1>
+    <center style="color:red;background-color:lightcoral" align="center">
+            <html:errors/>    
+        </center>
+            <logic:present name="lologre">
+            <center style="color:green;background-color: springgreen" align="center">
+                Se modifico exitosamente    
+            </center>
+            </logic:present>
         <html:form action="modificar" >
             <table border="0">
                 <tbody>
