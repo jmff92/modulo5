@@ -6,7 +6,8 @@
 
 package Actions;
 
-import Clases.Usuario;
+import Clases.LoginForm;
+import Clases.Empleado;
 import DBMS.DBMS;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,7 +41,10 @@ public class premodificar extends org.apache.struts.action.Action {
             HttpServletRequest request, HttpServletResponse response)
             throws Exception {
 
-        Usuario u = (Usuario) form;
+        LoginForm l = (LoginForm) form;
+        Empleado u = new Empleado();
+        u.setUsbid(l.getUsbid());
+        
         HttpSession session = request.getSession(true);
         
         ActionErrors error=null;
@@ -67,14 +71,14 @@ public class premodificar extends org.apache.struts.action.Action {
             
         } else {
 
-            Usuario user = DBMS.getInstance().obtenerUsuario(u);
+            Empleado user = DBMS.getInstance().obtenerEmpleado(u);
             
             if (user == null) {
                 u.limpiar();
                 return mapping.findForward(FAILURE);
             }
             
-            session.setAttribute("user", user);
+            session.setAttribute("Empleado", user);
             return mapping.findForward(SUCCESS);
         }
         

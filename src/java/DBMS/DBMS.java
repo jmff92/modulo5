@@ -158,6 +158,38 @@ public class DBMS {
         return Empleados;
     }
     
+    public Empleado obtenerEmpleado(Empleado e){
+        PreparedStatement ps = null;
+        try{
+            ps = conexion.prepareStatement(
+                    "SELECT * FROM USUARIO AS U,EMPLEADO AS E WHERE E.USBID=U.USBID AND E.USBID=?;");
+            ps.setString(1, e.getUsbid());
+            ResultSet rs = ps.executeQuery();
+            
+            while (rs.next()){
+                               
+                e.setUsbid(rs.getString("usbid"));
+                e.setNombres(rs.getString("nombres"));
+                e.setApellidos(rs.getString("apellidos"));
+                e.setCedula(rs.getInt("cedula"));
+                e.setCorreo(rs.getString("correo"));
+                e.setDireccion(rs.getString("direccion"));
+                e.setTelefono_casa(rs.getString("telefono_casa"));
+                e.setTelefono_celular(rs.getString("telefono_celular"));
+                e.setTipo(rs.getString("tipo"));
+                e.setAntiguedad(rs.getString("antiguedad"));
+                e.setCargo(rs.getString("cargo"));
+                e.setTipoE(rs.getString("tipo_empleado")); 
+                
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        
+        return e;
+    }
+    
+    
     public Usuario obtenerUsuario(Usuario u){
         
         PreparedStatement ps = null;

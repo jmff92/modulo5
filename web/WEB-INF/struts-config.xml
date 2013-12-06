@@ -50,7 +50,7 @@
             <forward name="success" path="/premodificar.jsp"/>
         </action>
         
-        <action path="/premodificar" name="Usuario"  type="Actions.premodificar" validate="false">
+        <action path="/premodificar" name="LoginForm"  type="Actions.premodificar" validate="false">
             <forward name="success" path="/modificar.jsp"/>
             <forward name="failure" path="/premodificar.jsp"/>
         </action>
@@ -60,7 +60,7 @@
             <forward name="failure" path="/agregar.jsp"/>
         </action>
         
-        <action path="/modificar" name="Usuario" type="Actions.modificar" validate="false">
+        <action path="/modificar" name="Empleado" type="Actions.modificar" validate="false">
             <forward name="success" path="/lologre.jsp"/>
             <forward name="failure" path="/fail.jsp"/>
         </action>

@@ -43,60 +43,73 @@
                     <tr>
                         <td> UsbId </td>
                         <td>
-                            <bean:write name="Usuario" property="usbid"/>
+                            <bean:write name="Empleado" property="usbid"/>
                         </td>
                     </tr>
                     <tr>
                         <td> Nombres </td>
                         <td>
-                            <html:text name="Usuario" property="nombres"/>
+                            <bean:write name="Empleado" property="nombres"/>
                         </td>
                     </tr>
                     <tr>
                         <td> Apellidos </td>
                         <td>
-                            <html:text name="Usuario" property="apellidos"/>
+                            <bean:write name="Empleado" property="apellidos"/>
                         </td>
                     </tr>
                     <tr>
                         <td> Cedula </td>
                         <td>
-                            <html:text name="Usuario" property="cedula"/>
+                            <bean:write name="Empleado" property="cedula"/>
                         </td>
                     </tr>
                     <tr>
                         <td> Correo </td>
                         <td>
-                            <html:text name="Usuario" property="correo"/>
+                            <html:text name="Empleado" property="correo"/>
                         </td>
                     </tr>
                     <tr>
                         <td> Direccion </td>
                         <td>
-                            <html:text name="Usuario" property="direccion"/>
+                            <html:text name="Empleado" property="direccion"/>
                         </td>
                     </tr>
                     <tr>
                         <td> Telefono fijo </td>
                         <td>
-                            <html:text name="Usuario" property="telefono_casa"/>
+                            <html:text name="Empleado" property="telefono_casa"/>
                         </td>
                     </tr>
                     <tr>
                         <td> Telefono celular</td>
                         <td>
-                            <html:text name="Usuario" property="telefono_celular"/>
+                            <html:text name="Empleado" property="telefono_celular"/>
                         </td>
                     </tr>
                     <tr>
-                        <td> Tipo </td>
+                        <td> Tipo Usuario </td>
                         <td>
-                            <html:select name="Usuario" property="tipo">
-                                <html:option value=""></html:option>
-                                <html:option value="estudiante">Estudiante</html:option>
-                                <html:option value="profesor">Profesor</html:option>
-                                <html:option value="empleado">Empleado</html:option>
-                            </html:select>
+                            <bean:write name="Empleado" property="tipo"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Cargo </td>
+                        <td>
+                            <bean:write name="Empleado" property="cargo"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Antiguedad </td>
+                        <td>
+                            <bean:write name="Empleado" property="antiguedad"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td> Tipo Empleado</td>
+                        <td>
+                            <bean:write name="Empleado" property="tipoE"/>
                         </td>
                     </tr>
                 </tbody>

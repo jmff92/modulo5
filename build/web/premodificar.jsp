@@ -42,7 +42,8 @@
                 <tr>
                     <td> UsbId </td>
                     <td>
-                        <html:text name="Usuario" property="usbid"/>
+                        <bean:write name="LoginForm" property="usbid"/>
+
                     </td>
                 </tr>
             </table>
