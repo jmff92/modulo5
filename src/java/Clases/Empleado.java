@@ -126,8 +126,17 @@ public class Empleado extends Usuario{
         return errors;
     } 
      
-    @Override
-    public ActionErrors validateTodo(ActionMapping mapping, HttpServletRequest request){
+    public ActionErrors validateCampos(ActionMapping mapping, HttpServletRequest request){
+        ActionErrors errors = new ActionErrors();
+        if(this.getCargo().contentEquals("")
+                ||this.getAntiguedad().contentEquals("")
+                ||this.getTipoE().contentEquals("")){
+            errors.add("error",new ActionMessage("error.empleado.vacio"));
+        }
+        return errors;
+    }
+    
+    public ActionErrors validateTodoE(ActionMapping mapping, HttpServletRequest request){
         ActionErrors errors = new ActionErrors();
         
         this.setErrorAntiguedad("");

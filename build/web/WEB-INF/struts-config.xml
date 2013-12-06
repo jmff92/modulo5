@@ -34,7 +34,7 @@
             <forward name="success" path="/inicio.jsp"/>
         </action>
         
-        <action path="/agregarL"  type="Actions.agregarL" validate="false">
+        <action path="/agregarL" name="Empleado"  type="Actions.agregarL" validate="false">
             <forward name="success" path="/agregar.jsp"/>
         </action>
         
@@ -56,7 +56,7 @@
         </action>
         
         <action path="/agregar" name="Empleado" type="Actions.agregar" validate="false">
-            <forward name="success" path="/lologre.jsp"/>
+            <forward name="success" path="/agregar.jsp"/>
             <forward name="failure" path="/agregar.jsp"/>
         </action>
         

@@ -36,8 +36,15 @@
         <title>Catalogo</title>
     </head>
     <body>
-        <h1>Almacenar</h1>
-
+        <h1>Agregar</h1>
+    <center style="color:red;background-color:lightcoral" align="center">
+        <html:errors/>    
+    </center>
+        <logic:present name="lologreA">
+        <center style="color:green;background-color: springgreen" align="center">
+            Se modifico exitosamente    
+        </center>
+            </logic:present>
         <html:form action="agregar" >
             <table border="0">
                 <tbody>
@@ -63,30 +70,6 @@
                         <td> Cedula </td>
                         <td>
                             <html:text name="Empleado" property="cedula"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> Correo </td>
-                        <td>
-                            <html:text name="Empleado" property="correo"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> Direccion </td>
-                        <td>
-                            <html:text name="Empleado" property="direccion"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> Telefono fijo </td>
-                        <td>
-                            <html:text name="Empleado" property="telefono_casa"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td> Telefono celular</td>
-                        <td>
-                            <html:text name="Empleado" property="telefono_celular"/>
                         </td>
                     </tr>
                     <tr>

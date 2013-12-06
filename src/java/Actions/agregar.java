@@ -46,22 +46,18 @@ public class agregar extends org.apache.struts.action.Action {
         Empleado u = (Empleado) form;
                 
         ActionErrors error=null;
+        HttpSession session = request.getSession(true);
         
-        if(u.getApellidos()==null||u.getCorreo()==null||u.getDireccion()==null
-                ||u.getNombres()==null||u.getTelefono_casa()==null
-                ||u.getTelefono_celular()==null||u.getTipo().contentEquals("")
-                ||u.getUsbid()==null
-                ||u.getApellidos().contentEquals("")
-                ||u.getCorreo().contentEquals("")
-                ||u.getDireccion().contentEquals("")
-                ||u.getNombres().contentEquals("")
-                ||u.getTelefono_celular().contentEquals("")
-                ||u.getUsbid().contentEquals("")){
+        error = u.validateVacio(mapping, request);
+        boolean huboError = false;
+        
+        if (error.size() != 0) {
+            saveErrors(request, error);
+             session.removeAttribute("lologreA");
             return mapping.findForward(FAILURE);
         }
         
-        error = u.validateTodo(mapping, request);
-        boolean huboError = false;
+        error = u.validateCampos(mapping, request);
         
         if (error.size() != 0) {
             huboError = true;
@@ -69,6 +65,7 @@ public class agregar extends org.apache.struts.action.Action {
         
         if (huboError) {
             saveErrors(request, error);
+            session.removeAttribute("lologreA");
             return mapping.findForward(FAILURE);
             
         } else {
@@ -80,12 +77,15 @@ public class agregar extends org.apache.struts.action.Action {
                 
                 if (agrego){
                     u.limpiarE();
+                    session.setAttribute("lologreA","conga!");
                     return mapping.findForward(SUCCESS);
                 
                 } else {
+                    session.removeAttribute("lologreA");
                     return mapping.findForward(FAILURE);
                 }
             } else {
+                session.removeAttribute("lologre");
                 return mapping.findForward(FAILURE);
             }
         }
