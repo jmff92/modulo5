@@ -42,7 +42,7 @@
     </center>
         <logic:present name="lologreA">
         <center style="color:green;background-color: springgreen" align="center">
-            Se modifico exitosamente    
+            Se agrego exitosamente    
         </center>
             </logic:present>
         <html:form action="agregar" >

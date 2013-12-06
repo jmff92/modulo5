@@ -35,17 +35,16 @@ public class eliminar extends org.apache.struts.action.Action{
         Usuario u = (Usuario) form;
         HttpSession session = request.getSession(true);
         
-        ActionErrors error;
+        ActionErrors error = new ActionErrors();
         
         if(u.getUsbid().contentEquals("")){
+            session.removeAttribute("lologreE");
+            error.add("error", new ActionMessage("error.usuario.vacio"));
+            saveErrors(request, error);
             return mapping.findForward(FAILURE);
         }
         
-        error = null;
-        
         boolean huboError = false;
-        
-        error = u.validate(mapping, request);
         
         if (error.size() != 0) {
             huboError = true;
@@ -53,6 +52,7 @@ public class eliminar extends org.apache.struts.action.Action{
         
         if (huboError) {
             saveErrors(request, error);
+            session.removeAttribute("lologreE");
             return mapping.findForward(FAILURE);
             
         } else {
@@ -62,8 +62,12 @@ public class eliminar extends org.apache.struts.action.Action{
             u.limpiar();
             
             if (eliminar) {
+                session.setAttribute("lologreE","conga!");
                 return mapping.findForward(SUCCESS);
             } else {
+                session.removeAttribute("lologreE");
+                error.add("error", new ActionMessage("error.usuario.noexist"));
+                saveErrors(request, error);
                 return mapping.findForward(FAILURE);
             }
         }
